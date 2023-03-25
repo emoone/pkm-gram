@@ -23,6 +23,7 @@ module.exports = {
       fontSize: px0_100,
       borderRadius: px0_10,
       border: px0_10,
+      height: px0_100,
       
 
       gridTemplateColumns: {
