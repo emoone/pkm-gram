@@ -21,9 +21,16 @@ export default function ProfileComponent() {
       <div className="border-t-[1px] flex flex-col">
         <ul className="flex justify-center items-center">
           <li
-            className={cn('p-10 text-sm font-semibold', {
+            className={cn('p-10 text-sm font-semibold flex flex-row gap-2', {
               'border-t-[2px] border-black': checked === 'posts',
             })}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24">
+              <path d="M4 4v20h20v-20h-20zm18 18h-16v-13h16v13zm-3-3h-10v-1h10v1zm0-3h-10v-1h10v1zm0-3h-10v-1h10v1zm2-11h-19v19h-2v-21h21v2z" />
+            </svg>
             게시물
           </li>
         </ul>
