@@ -12,7 +12,7 @@ export default function ProfileContent(props: Props) {
         <h2 className="text-lg font-semibold">{loginId}</h2>
         <button
           type="button"
-          className="border-[1px] border-[#e6e6e6] p-5 text-sm rounded">
+          className="border-[1px] border-[#e6e6e6] p-5 text-sm rounded border-solid">
           프로필 편집
         </button>
         {/* TODO: 톱니바퀴 */}
