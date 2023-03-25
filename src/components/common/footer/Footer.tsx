@@ -1,4 +1,5 @@
 import cn from 'clsx';
+import { footerArrData } from './data/_constance';
 
 export default function Footer() {
   return (
@@ -13,7 +14,7 @@ export default function Footer() {
           {footerArrData.map((item, index) => {
             return (
               <li key={`${item.name}-${index}`}>
-                <a className="text-[#003569]" href={item.link}>
+                <a className="text-[#003569] font-medium" href={item.link}>
                   {item.name}
                 </a>
               </li>
@@ -22,7 +23,7 @@ export default function Footer() {
         </ul>
         {/* listArea */}
         {/* copyRightArea */}
-        <div className="copyRight">
+        <div className="copyRight text-[#999] font-medium text-15">
           <span className="copyright">© 2017 Vietgram</span>
         </div>
         {/* copyRightArea */}
@@ -30,15 +31,3 @@ export default function Footer() {
     </footer>
   );
 }
-const footerArrData = [
-  { name: 'About Us', link: '/about' },
-  { name: 'Support', link: '/support' },
-  { name: 'Blog', link: '/blog' },
-  { name: 'Press', link: '/press' },
-  { name: 'Api', link: '/api' },
-  { name: 'Jobs', link: '/job' },
-  { name: 'Privacy', link: '/privacy' },
-  { name: 'Terms', link: '/terms' },
-  { name: 'Directory', link: '/directory' },
-  { name: 'Language', link: '/language' },
-];
