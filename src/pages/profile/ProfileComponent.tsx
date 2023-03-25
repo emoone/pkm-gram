@@ -12,7 +12,7 @@ export default function ProfileComponent() {
 
   return (
     <div className="max-w-[975px] mx-auto -tracking-[1px] mb-14">
-      <div className="flex flex-row gap-10">
+      <div className="flex flex-col gap-5 justify-center md:flex-row md:gap-10">
         <ProfileImage
           imagePath={'https://intro.kwkang.dev/img/my.02d7c309.jpeg'}
         />
