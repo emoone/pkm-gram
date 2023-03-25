@@ -3,7 +3,7 @@ import { footerArrData } from '../data/_constance';
 
 export default function Footer() {
   return (
-    <footer id="footerCon" className="w-full mx-auto max-w-[900px] ">
+    <footer id="footerCon" className="w-full mx-auto max-w-[900px]">
       <div
         className={cn(
           'contentInner flex justify-center items-center flex-col',
