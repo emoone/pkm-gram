@@ -1,3 +1,7 @@
+const px0_10 = { ...Array.from(Array(11)).map((_, i) => `${i}px`) };
+const px0_100 = { ...Array.from(Array(101)).map((_, i) => `${i}px`) };
+const px0_200 = { ...Array.from(Array(201)).map((_, i) => `${i}px`) };
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -15,9 +19,9 @@ module.exports = {
     },
 
     extend: {
-      colors: {
-
-      },
+      padding: px0_10,
+      fontSize: px0_100,
+      
 
       gridTemplateColumns: {
         'repeat-fit': 'repeat(6, minmax(0, 1fr))',
@@ -43,11 +47,8 @@ module.exports = {
     },
   },
 
-  variants: {
-    extend: {
-      borderWidth: ['hover'],
-    },
-  },
+
+
   corePlugins: { preflight: true }, // tailwind reset css 활성/비활성 옵션
   plugins: [
     require('@savvywombat/tailwindcss-grid-areas'),
