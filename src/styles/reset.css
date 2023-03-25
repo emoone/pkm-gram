@@ -1,0 +1,22 @@
+input,
+button,
+textarea,
+select {
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  cursor: pointer;
+  background: transparent;
+}
+
+input {
+  cursor: text;
+}
+
+input[type='radio'] {
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  display: none;
+}

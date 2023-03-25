@@ -1,5 +1,5 @@
 import cn from 'clsx';
-import { footerArrData } from './data/_constance';
+import { footerArrData } from '../data/_constance';
 
 export default function Footer() {
   return (

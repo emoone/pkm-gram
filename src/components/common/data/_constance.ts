@@ -10,3 +10,15 @@ export const footerArrData = [
   { name: 'Directory', link: '/directory' },
   { name: 'Language', link: '/language' },
 ];
+
+export const headerArrData = [
+  { name: 'logo', itemList: [{ icon: '' }] },
+  { name: 'search', itemList: [] },
+  { name: 'snb', itemList: [] },
+];
+
+export const snbMenu = [
+  { name: 'Compass', icon: '' },
+  { name: 'Compass', icon: '' },
+  { name: 'Compass', icon: '' },
+];

@@ -21,6 +21,8 @@ module.exports = {
     extend: {
       padding: px0_10,
       fontSize: px0_100,
+      borderRadius: px0_10,
+      border: px0_10,
       
 
       gridTemplateColumns: {
