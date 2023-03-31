@@ -1,0 +1,19 @@
+@supports {};
+
+# example
+header {
+  display: flex;
+}
+
+@supports (display:grid) {
+  header {
+    display: grid;
+  }
+}
+
+
+# 연산 종류
+  - not, and, or
+
+@at {};
+

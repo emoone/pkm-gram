@@ -15,11 +15,11 @@
 ```bash
 ├── src
 │   ├── apis
-│   ├── utiles
-│   ├── uis // 버튼 등 모듈 component
+│   ├── uis // 버튼 등 모듈 component 모음
+│   ├── utils
 │   ├──
 │   ├── styles
-│   └── components
+│   └── components // 페이지별 component
 │        ├── common
 ├──
 ├──
