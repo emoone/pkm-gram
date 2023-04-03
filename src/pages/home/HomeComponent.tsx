@@ -10,11 +10,12 @@ export default function HomeComponent() {
       </div>
       {/* imgArea */}
       {/* userInfoArea */}
-      <div className={cn('userInfo flex flex-1 flex-col', '')}>
+      <div className={cn('userInfo flex flex-1 flex-col gap-y-[10px]', '')}>
         {/* loginFormCol */}
         <div
           className={cn(
-            'loginCol border flex flex-col items-center border-solid border-[#e6e6e6] rounded-3 px-[40px]',
+            'loginCol flex flex-col items-center rounded-3 px-[40px]',
+            'md:border md:border-solid md:border-[#e6e6e6]',
             '[&>.loginBox]:py-[30px]',
           )}>
           {/* login */}
@@ -28,12 +29,16 @@ export default function HomeComponent() {
               <input
                 type="text"
                 placeholder="UserName"
-                className="block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full"
+                className={cn(
+                  'block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full bg-transparent',
+                )}
               />
               <input
                 type="password"
                 placeholder="Password"
-                className="block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full"
+                className={cn(
+                  'block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full bg-transparent',
+                )}
               />
             </div>
 
@@ -66,10 +71,23 @@ export default function HomeComponent() {
         {/* signUpArea */}
         <div
           className={cn(
-            'loginCol loginCon flex flex-1 flex-col  border border-solid border-[#e6e6e6] rounded-3 py-[30px]',
+            'loginCol loginCon text-center rounded-3 py-[30px]',
+            'md:border md:border-solid md:border-[#e6e6e6]',
           )}>
           <div>
             Don&apos;t have an account? <button type="button">Sign up</button>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center justify-center otherCon gap-y-[10px]">
+          <p className="">get the App</p>
+          <div className="flex items-center justify-center">
+            <button type="button" className="inline-block w-full max-w-[136px]">
+              <img src="/images/android.png" alt="" />
+            </button>
+            <button type="button" className="inline-block w-full max-w-[136px]">
+              <img src="/images/ios.png" alt="" />
+            </button>
           </div>
         </div>
         {/* signUpArea */}

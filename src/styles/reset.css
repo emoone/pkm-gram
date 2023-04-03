@@ -1,3 +1,7 @@
+body {
+  @apply bg-[#fafafa] md:bg-white;
+}
+
 input,
 button,
 textarea,

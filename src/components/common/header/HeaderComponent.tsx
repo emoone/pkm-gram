@@ -1,13 +1,14 @@
-import cn from 'clsx';
 import { Compass, Heart, Search, User } from '../../../uis/icons';
+
+import cn from 'clsx';
 
 export default function HeaderComponent() {
   return (
     <header className="headerCon">
       <nav
         className={cn(
-          'contentInner flex flex-wrap justify-between items-center px-20 border-b-[1px] border-[#e6e6e6] h-76',
-          'md:px-100',
+          'contentInner flex flex-wrap justify-center items-center px-20 border-b-[1px] border-[#e6e6e6] h-76',
+          'md:px-100 md:justify-between',
         )}>
         {/* logoArea */}
         <div className="logo w-[176px]">
