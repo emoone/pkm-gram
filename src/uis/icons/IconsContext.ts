@@ -1,4 +1,4 @@
 export interface IconsContext {
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }

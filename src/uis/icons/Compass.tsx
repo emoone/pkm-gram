@@ -1,7 +1,8 @@
-import { IconPropsType } from './IconTypes';
+import { IconsContext } from './IconsContext';
 
-export function Compass(props: IconPropsType) {
+export function Compass(props: IconsContext) {
   const { width = 24, height = 24 } = props;
+
   return (
     <div className="icon compass">
       <svg

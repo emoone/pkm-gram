@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Dollar } from '../../uis/icons';
 import cn from 'clsx';
 
@@ -75,7 +76,12 @@ export default function LoginComponent() {
             'md:border md:border-solid md:border-[#e6e6e6]',
           )}>
           <div>
-            Don&apos;t have an account? <button type="button">Sign up</button>
+            Don&apos;t have an account?{' '}
+            <Link
+              className="text-[#003569] text-12 font-bold underline"
+              to="/account/signup">
+              Sign up
+            </Link>
           </div>
         </div>
 

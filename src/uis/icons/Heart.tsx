@@ -1,6 +1,6 @@
-import { IconPropsType } from './IconTypes';
+import { IconsContext } from './IconsContext';
 
-export function Heart(props: IconPropsType) {
+export function Heart(props: IconsContext) {
   const { width = 24, height = 24 } = props;
   return (
     <div className="icon heart">
