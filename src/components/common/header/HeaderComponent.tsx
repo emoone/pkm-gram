@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Compass, Heart, Search, User } from '../../../uis/icons';
 
 import cn from 'clsx';
+import { InstarGram } from '../../../uis/icons/InstarGram';
 
 export default function HeaderComponent() {
   return (
@@ -12,10 +13,11 @@ export default function HeaderComponent() {
           'md:px-100 md:justify-between',
         )}>
         {/* logoArea */}
-        <div className="logo w-[176px]">
+        <div className="logo w-[103px]">
           <a href="/">
             <div className="logo">
-              <img src="/images/logo/logo.png" alt="" />
+              {/* <img src="/images/logo/logo.png" alt="" /> */}
+              <InstarGram />
             </div>
           </a>
         </div>
