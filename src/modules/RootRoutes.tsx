@@ -10,8 +10,8 @@ export default function RootRoutes() {
       <Routes>
         <Route element={<TheLayout />}>
           <Route path="/" element={<HomeComponent />} />
-          <Route path="/login" element={<LoginComponent />} />
-          <Route path="/:loginId" element={<ProfileComponent />} />
+          <Route path="/account/login" element={<LoginComponent />} />
+          <Route path="/account/:loginId" element={<ProfileComponent />} />
         </Route>
       </Routes>
     </BrowserRouter>

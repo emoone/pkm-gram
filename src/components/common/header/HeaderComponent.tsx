@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Compass, Heart, Search, User } from '../../../uis/icons';
 
 import cn from 'clsx';
@@ -7,7 +8,7 @@ export default function HeaderComponent() {
     <header className="headerCon">
       <nav
         className={cn(
-          'contentInner flex flex-wrap justify-center items-center px-20 border-b-[1px] border-[#e6e6e6] h-76',
+          'contentInner flex flex-wrap justify-center items-center px-20 border-b-[1px] border-[#e6e6e6] h-76 sticky top-0',
           'md:px-100 md:justify-between',
         )}>
         {/* logoArea */}
@@ -41,9 +42,15 @@ export default function HeaderComponent() {
         {/* searchArea */}
         {/* snbMenu */}
         <div className={cn('snbMenu flex gap-x-[30px]', '[&>.icon]:w-[24px]')}>
-          <Compass />
-          <Heart />
-          <User />
+          <Link to="">
+            <Compass />
+          </Link>
+          <Link to="/account/login">
+            <Heart />
+          </Link>
+          <Link to="/account/profile">
+            <User />
+          </Link>
         </div>
         {/* snbMenu */}
       </nav>

@@ -1,9 +1,12 @@
-export function Compass() {
+import { IconPropsType } from './IconTypes';
+
+export function Compass(props: IconPropsType) {
+  const { width = 24, height = 24 } = props;
   return (
     <div className="icon compass">
       <svg
-        width="24"
-        height="24"
+        width={width}
+        height={height}
         xmlns="http://www.w3.org/2000/svg"
         fillRule="evenodd"
         clipRule="evenodd">
