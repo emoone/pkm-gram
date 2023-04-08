@@ -79,7 +79,7 @@ export default function LoginComponent() {
             Don&apos;t have an account?{' '}
             <Link
               className="text-[#003569] text-12 font-bold underline"
-              to="/account/signup">
+              to="/account/emailsignup">
               Sign up
             </Link>
           </div>
