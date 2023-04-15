@@ -8,7 +8,7 @@ import ProfileContent from './views/ProfileContent';
 export default function ProfileComponent() {
   const { loginId } = useParams();
 
-  const [checked] = useState('posts');
+  const [checked, setCecked] = useState('posts');
 
   return (
     <div className="max-w-[975px] mx-auto -tracking-[1px] mb-14 mt-14">
