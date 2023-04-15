@@ -5,11 +5,12 @@ export function BookMark(props: IconsContext) {
   return (
     <svg
       className="icon bookmart"
+      xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24">
-      <path d="M16 2v17.582l-4-3.512-4 3.512v-17.582h8zm2-2h-12v24l6-5.269 6 5.269v-24z" />
+      fill="currentColor"
+      viewBox="0 0 16 16">
+      <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />{' '}
     </svg>
   );
 }

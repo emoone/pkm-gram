@@ -21,9 +21,11 @@ export function FeedItem() {
       {/* top-(logo, id) */}
       <section className="topFeed flex items-center h-[56px]">
         <div className="mainItem w-full inline-flex items-center gap-x-[5px]">
-          <div className="logo cursor-pointer w-[42px] rounded-[50%] overflow-hidden">
+          <Link
+            to={'/account/hypebeastkr'}
+            className="logo cursor-pointer w-[42px] rounded-[50%] overflow-hidden">
             <img src="/images/avatar.jpg" alt="" />
-          </div>
+          </Link>
           <div className="userInfo">
             <div className="userId">
               <span>userId</span>{' '}
@@ -43,7 +45,7 @@ export function FeedItem() {
       </section>
       {/* top-(logo, id) */}
       {/* middle-(img) */}
-      <section className="imgCon rounded-3 overflow-hidden">
+      <section className="imgCon rounded-3 overflow-hidden relative">
         <picture className="block aspect-[1/1] bg-red-300">
           <source />
           <img
@@ -75,7 +77,9 @@ export function FeedItem() {
             <span>좋아요</span>
             <span>17,777개</span>
           </button>
-          <Link to={'#'} className="id inline-block font-semibold mr-[5px]">
+          <Link
+            to={'/account/hypebeastkr'}
+            className="id inline-block font-semibold mr-[5px]">
             hypebeastkr
           </Link>
           팬들을 대상으로 488개의 캐릭터 순위를 선정하는 투표를 진행했습니다.
