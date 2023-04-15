@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import { Dollar } from '../../uis/icons';
 import cn from 'clsx';
+import { InstarGram } from '../../uis/icons/';
 
 export default function LoginComponent() {
   return (
-    <div className="contentCon flex w-full justify-around max-w-[800px] mx-auto gap-x-10 my-[15px] md:my-[30px]">
+    <div className="contentCon flex w-full justify-around max-w-[800px] mx-auto gap-x-10 my-[15px] md:my-[30px] md:px-10">
       {/* imgArea */}
       <div className="phoneImg hidden md:inline-block flex-1 aspect-[523/825]">
         <img src="/images/phoneimage.png" alt="" />
@@ -23,7 +24,7 @@ export default function LoginComponent() {
           <form className={cn('w-full loign loginBox loginForm ')}>
             {/* logo */}
             <div className=" logo aspect-[358/110] w-full max-w-[162.73px] mx-auto">
-              <img src="/images/icons/loginLogo.png" alt="" />
+              <InstarGram />
             </div>
             {/* logo */}
             <div className=" w-full userInfo flex flex-col gap-y-[5px]">

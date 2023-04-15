@@ -9,14 +9,13 @@ export default function HeaderComponent() {
     <header className="headerCon sticky top-0 bg-white z-[1]">
       <nav
         className={cn(
-          'contentInner flex flex-wrap justify-center items-center px-20 border-b-[1px] border-[#e6e6e6] h-76',
-          'md:px-100 md:justify-between',
+          'contentInner flex flex-col justify-center gap-y-[5px] items-center px-20 border-b-[1px] border-[#e6e6e6] h-76',
+          'md:px-100 md:justify-between md:flex-row',
         )}>
         {/* logoArea */}
         <div className="logo w-[103px]">
           <a href="/">
             <div className="logo">
-              {/* <img src="/images/logo/logo.png" alt="" /> */}
               <InstarGram />
             </div>
           </a>

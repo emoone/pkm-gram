@@ -7,6 +7,7 @@ import { Search } from './Search';
 import { User } from './User';
 import { AirPlane } from './AirPlane';
 import { BookMark } from './BookMark';
+import { InstarGram } from './InstarGram';
 
 export {
   User,
@@ -18,4 +19,5 @@ export {
   SpeechBubble,
   AirPlane,
   BookMark,
+  InstarGram,
 };

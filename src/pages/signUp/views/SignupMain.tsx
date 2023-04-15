@@ -1,9 +1,18 @@
 import cn from 'clsx';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CustomInput } from '../../../components/common/customInput';
 
 export default function SignupMain() {
+  const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
+  const [passWord, setPassWord] = useState('');
   return (
-    <div className="signUpCon flex flex-col w-full max-w-[350px] mx-auto gap-y-[20px] m-[10px_0_30px]">
+    <div
+      className={cn(
+        'signUpCon flex flex-col w-full max-w-[350px] mx-auto m-[10px_0_30px] gap-y-[10px]',
+        'ssm:gap-y-[20px]',
+      )}>
       {/* signUpArea */}
       <form
         action=""
@@ -16,12 +25,21 @@ export default function SignupMain() {
         </div>
 
         <div className=" w-full userInfo flex flex-col gap-y-[5px]">
-          <input
+          {/* <input
             type="email"
             placeholder="Email"
             className={cn(
               'block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full bg-transparent',
             )}
+          /> */}
+          <CustomInput
+            value={email}
+            type="email"
+            onChange={(e: any) => {
+              setEmail(e.target.value);
+            }}
+            placeHolder="Email"
+            className="block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] "
           />
           <input
             type="text"
@@ -42,7 +60,7 @@ export default function SignupMain() {
         {/* btnArea */}
         <button
           type="button"
-          className="btnLogin w-full mb-[20px] bg-[#3f99ed] text-white py-5 font-semibold rounded-5">
+          className="btnLogin w-full ssm:mb-[20px] bg-[#3f99ed] text-white py-5 font-semibold rounded-5">
           SignUp
         </button>
         {/* btnArea */}
@@ -52,8 +70,8 @@ export default function SignupMain() {
       {/* loginArea */}
       <div
         className={cn(
-          'flex justify-center flex-wrap items-center rounded-3 p-[30px_40px] gap-x-[5px]',
-          'ssm:border ssm:border-solid ssm:border-[#e6e6e6]',
+          'flex justify-center flex-wrap items-center rounded-3 p-[5px_7px] gap-x-[5px]',
+          'ssm:border ssm:border-solid ssm:border-[#e6e6e6] ssm:p-[1rem_1.5rem]',
         )}>
         Have an account?{' '}
         <Link
