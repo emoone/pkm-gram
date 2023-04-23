@@ -1,15 +1,32 @@
 import { IconsContext } from './IconsContext';
 
 export function AirPlane(props: IconsContext) {
-  const { width = '24', height = '24' } = props;
+  const { width = '24', height = '24', color = '#000' } = props;
   return (
     <svg
+      aria-label="airPlane"
       className="icon dm"
-      xmlns="http://www.w3.org/2000/svg"
+      color={color}
+      fill={color}
       width={width}
       height={height}
+      role="img"
       viewBox="0 0 24 24">
-      <path d="M0 12l11 3.1 7-8.1-8.156 5.672-4.312-1.202 15.362-7.68-3.974 14.57-3.75-3.339-2.17 2.925v-.769l-2-.56v7.383l4.473-6.031 4.527 4.031 6-22z" />
+      <line
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        x1="22"
+        x2="9.218"
+        y1="3"
+        y2="10.083"></line>
+      <polygon
+        fill="none"
+        points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="2"></polygon>
     </svg>
   );
 }

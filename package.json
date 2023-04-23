@@ -28,6 +28,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
+    "swiper": "^9.2.4",
     "tailwind-scrollbar-hide": "^1.1.7",
     "tailwindcss-image-rendering": "^1.0.2",
     "tailwindcss-textshadow": "^2.1.3",
