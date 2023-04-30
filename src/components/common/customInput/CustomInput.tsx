@@ -1,5 +1,6 @@
-import cn from 'clsx';
 import React from 'react';
+import cn from 'clsx';
+
 interface PropsType {
   type?: string;
   placeHolder?: string;

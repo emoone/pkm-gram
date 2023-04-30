@@ -8,7 +8,7 @@ import { Menu } from '../../uis/icons';
 export function FeedUserInfo() {
   return (
     <section className="topFeed flex items-center h-[56px]">
-      <div className="mainItem w-full inline-flex items-center gap-x-[5px]">
+      <div className="mainItem w-full inline-flex items-center gap-x-[5px] ml-[5px]">
         <Link
           to={'/account/hypebeastkr'}
           className="logo cursor-pointer w-[42px] rounded-[50%] overflow-hidden">

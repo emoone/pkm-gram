@@ -1,9 +1,11 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import cn from 'clsx';
-import { Navigation, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
+
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import { Arrow } from '../../uis/icons';
+import cn from 'clsx';
 
 interface PropsType {
   images: any[];
@@ -15,7 +17,7 @@ interface PropsType {
  */
 export function FeedImg() {
   return (
-    <section className="imgCon rounded-3 overflow-hidden relative">
+    <section className="relative overflow-hidden imgCon rounded-3">
       <Swiper
         className="swiperCon"
         navigation={{
@@ -47,13 +49,13 @@ export function FeedImg() {
         <button
           id="arrowPrev"
           type="button"
-          className="absolute bg-opacity-60 p-[9px] rounded-[50px] z-[1] w-[30px] h-[30px] bg-white top-1/2 -translate-y-1/2 left-0 transform -scale-100">
+          className="absolute bg-opacity-60 p-[9px] rounded-[50px] z-[1] w-[30px] h-[30px] bg-white top-1/2 -translate-y-1/2 left-[8px] transform -scale-100">
           <Arrow className="" width={'30'} height={'30'} />
         </button>
         <button
           id="arrowNext"
           type="button"
-          className="absolute bg-opacity-60 p-[9px] rounded-[50px] z-[1] w-[30px] h-[30px] bg-white top-1/2 -translate-y-1/2 right-0">
+          className="absolute bg-opacity-60 p-[9px] rounded-[50px] z-[1] w-[30px] h-[30px] bg-white top-1/2 -translate-y-1/2 right-[8px]">
           <Arrow className="" width={'30'} height={'30'} />
         </button>
 

@@ -1,7 +1,7 @@
+import { CustomInput } from '../../../components/common/customInput';
+import { Link } from 'react-router-dom';
 import cn from 'clsx';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { CustomInput } from '../../../components/common/customInput';
 
 export default function SignupMain() {
   const [email, setEmail] = useState('');
@@ -41,16 +41,23 @@ export default function SignupMain() {
             placeHolder="Email"
             className="block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] "
           />
-          <input
+          <CustomInput
+            value={userName}
             type="text"
-            placeholder="UserName"
+            placeHolder="UserName"
             className={cn(
               'block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full bg-transparent',
             )}
+            onChange={(e: any) => {
+              setUserName(e.target.value);
+            }}
           />
-          <input
+
+          <CustomInput
             type="password"
-            placeholder="Password"
+            value={passWord}
+            placeHolder="Password"
+            onChange={(e: any) => setPassWord(e.target.value)}
             className={cn(
               'block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full bg-transparent',
             )}

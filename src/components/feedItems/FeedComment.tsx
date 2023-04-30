@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
 import { AirPlane, BookMark, Heart, SpeechBubble } from '../../uis/icons';
+
 import { CustomInput } from '../common/customInput';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 /**
@@ -11,7 +12,7 @@ export function FeedComment() {
   const [comment, setComment] = useState('');
 
   return (
-    <section className="feedBottom pt-[20px]">
+    <section className="feedBottom pt-[20px] px-[16px] md:px-0">
       <div className="statusCon flex gap-x-[5px]">
         <button type="button" className="ico heart">
           <Heart />
@@ -22,11 +23,11 @@ export function FeedComment() {
         <button type="button" className="ico dm">
           <AirPlane />
         </button>
-        <button type="button" className="ico bookmark ml-auto">
+        <button type="button" className="ml-auto ico bookmark">
           <BookMark />
         </button>
       </div>
-      <div className="desCon line-clamp-3 truncate whitespace-pre-wrap">
+      <div className="truncate whitespace-pre-wrap desCon line-clamp-3">
         <button type="button" className="block text-[.7rem] font-semibold">
           <span>좋아요</span>
           <span>17,777개</span>

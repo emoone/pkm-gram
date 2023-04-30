@@ -1,6 +1,11 @@
 import { useCallback, useState } from 'react';
 
-export default function PostCard() {
+interface PropsType {
+  imgPath: string;
+}
+
+export default function PostCard(props: PropsType) {
+  const { imgPath } = props;
   //TODO: 만들어야함. 기본적인 이미지만 넣어놨음.
   const [hover, sethover] = useState<boolean>(false);
 
@@ -12,17 +17,19 @@ export default function PostCard() {
     [hover],
   );
 
-  console.log(hover);
-
   return (
     <div
-      className="max-w-[310px] aspect-[1/1] relative cursor-pointer"
+      className="relative cursor-pointer flex items-center justify-center pb-[100%] overflow-hidden"
       onMouseEnter={() => onHover(true)}
       onMouseLeave={() => onHover(false)}>
-      <img src="https://intro.kwkang.dev/img/my.02d7c309.jpeg" alt="img" />
+      <img
+        className="absolute top-0 left-0 object-cover w-full h-full"
+        src={imgPath}
+        alt="img"
+      />
       {hover && (
         <div className="absolute bg-[rgba(0,0,0,0.3)] top-0 left-0 w-full h-full flex flex-row gap-3 justify-center items-center">
-          <div className="text-white flex flex-row gap-3">
+          <div className="flex flex-row gap-3 text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -32,7 +39,7 @@ export default function PostCard() {
             </svg>
             <span>100만</span>
           </div>
-          <div className="text-white flex flex-row gap-3">
+          <div className="flex flex-row gap-3 text-white">
             <svg
               width="24"
               height="24"
