@@ -9,3 +9,4 @@ export * from './AirPlane';
 export * from './BookMark';
 export * from './InstarGram';
 export * from './Arrow';
+export * from './Close';
