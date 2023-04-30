@@ -2,6 +2,7 @@ import PostCard from '../../components/post/PostCard';
 import ProfileContent from './views/ProfileContent';
 import ProfileImage from './views/ProfileImage';
 import cn from 'clsx';
+import { openPostCardLayer } from '../../components/layer/postCard';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -52,8 +53,16 @@ export default function ProfileComponent() {
           </li>
         </ul>
         <div className="grid grid-cols-3 grid-rows-1 gap-[3px] md:gap-[4px]">
-          {smapleImg.map((item: any, index: number) => {
-            return <PostCard key={index} imgPath={item} />;
+          {smapleImg.map((item, index: number) => {
+            return (
+              <PostCard
+                key={index}
+                imgPath={item}
+                onClick={() => {
+                  openPostCardLayer({ imgPath: item });
+                }}
+              />
+            );
           })}
         </div>
       </div>

@@ -2,10 +2,11 @@ import { useCallback, useState } from 'react';
 
 interface PropsType {
   imgPath: string;
+  onClick: () => void;
 }
 
 export default function PostCard(props: PropsType) {
-  const { imgPath } = props;
+  const { imgPath, onClick } = props;
   //TODO: 만들어야함. 기본적인 이미지만 넣어놨음.
   const [hover, sethover] = useState<boolean>(false);
 
@@ -21,7 +22,8 @@ export default function PostCard(props: PropsType) {
     <div
       className="relative cursor-pointer flex items-center justify-center pb-[100%] overflow-hidden"
       onMouseEnter={() => onHover(true)}
-      onMouseLeave={() => onHover(false)}>
+      onMouseLeave={() => onHover(false)}
+      onClick={onClick}>
       <img
         className="absolute top-0 left-0 object-cover w-full h-full"
         src={imgPath}

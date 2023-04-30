@@ -186,7 +186,7 @@ const ModalContainer: React.FC<ModalContainerProps> = props => {
     <>
       {modalList.map((item, index) => {
         return (
-          <span id={`modal_${item.key}`} key={`modal-${item.key}`}>
+          <span id={`modal_${item.key}`} key={`modal-${item.key}-${index}`}>
             {item.component}
           </span>
         );
