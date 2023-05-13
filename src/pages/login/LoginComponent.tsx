@@ -2,17 +2,50 @@ import { Link } from 'react-router-dom';
 import { Dollar } from '../../uis/icons';
 import cn from 'clsx';
 import { InstarGram } from '../../uis/icons/';
+import { useEffect, useState } from 'react';
 
 export default function LoginComponent() {
+  const [currentIdx, setCurrentIdx] = useState(0);
+  useEffect(() => {
+    let start = 0;
+    setInterval(() => {
+      if (start < 4) {
+        setCurrentIdx(start++);
+      } else {
+        start = 0;
+        setCurrentIdx(start);
+      }
+    }, 5000);
+  }, []);
+
   return (
     <div className="contentCon flex w-full justify-around max-w-[800px] mx-auto gap-x-10 my-[15px] md:my-[30px] md:px-10">
       {/* imgArea */}
-      <div className="phoneImg hidden md:inline-block flex-1 aspect-[523/825]">
-        <img src="/images/phoneimage.png" alt="" />
+      <div
+        className="phoneImg relative hidden md:h-[581px] md:block bg-[url('/public/images/bg/signup_bg.png')] basis-[380.32px] bg-no-repeat bg-[length:468.32px_634.15px] bg-[left_calc(-46px)_top_calc(0%)]
+      ">
+        {/* <img src="/images/phoneimage.png" alt="" /> */}
+        <div className=" relative mt-[27px] flex flex-col items-stretch ml-[113px]">
+          {[...Array(4)].map((item, index) => {
+            return (
+              <img
+                className={cn(
+                  'w-[250px] h-[538.84px] opacity-0 transition duration-[1.5s] absolute top-0 left-0 ease-out',
+                  {
+                    ['opacity-100 visible']: currentIdx === index,
+                  },
+                )}
+                key={index}
+                src={`/images/bg/img_item_0${index + 1}.png`}
+                alt=""
+              />
+            );
+          })}
+        </div>
       </div>
       {/* imgArea */}
       {/* userInfoArea */}
-      <div className={cn('userInfo flex flex-1 flex-col gap-y-[10px]', '')}>
+      <div className={cn('userInfo flex grow-[1] flex-col gap-y-[10px]', '')}>
         {/* loginFormCol */}
         <div
           className={cn(

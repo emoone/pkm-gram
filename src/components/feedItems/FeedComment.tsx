@@ -11,6 +11,12 @@ import { useState } from 'react';
 export function FeedComment() {
   const [comment, setComment] = useState('');
 
+  const DES1 =
+    '팬들을 대상으로 488개의 캐릭터 순위를 선정하는 투표를 진행했습니다. 무려 460만명의 팬들이 투표에 참여했는데요. 1위 캐릭터는 나미카제 미나토가 선정됐으며, 2위에는 우치하 이타치, 3위 하루노 사쿠라, 4위 우치하 시스이, 하타케 카카시, 우즈마키 나루토가 뒤를 이었습니다. 사진: Jumpcomics';
+  const DES2 =
+    '팬들을 대상으로 488개의 캐릭터 순위를 선정하는 투표를 진행했습니다. \n무려 460만명의 팬들이 투표에 참여했는데요.\n 1위 캐릭터는 나미카제 미나토가 선정됐으며, 2위에는 우치하 이타치, 3위 하루노 사쿠라, 4위 우치하 시스이, 하타케 카카시, 우즈마키 나루토가 뒤를 이었습니다.사진: Jumpcomics';
+
+  console.log(DES1, DES2);
   return (
     <section className="feedBottom pt-[20px] px-[16px] md:px-0">
       <div className="statusCon flex gap-x-[5px]">
@@ -39,7 +45,8 @@ export function FeedComment() {
         </Link>
         팬들을 대상으로 488개의 캐릭터 순위를 선정하는 투표를 진행했습니다. 무려
         460만명의 팬들이 투표에 참여했는데요. 1위 캐릭터는 나미카제 미나토가
-        선정됐으며, 2위에는 우치하
+        선정됐으며, 2위에는 우치하 이타치, 3위 하루노 사쿠라, 4위 우치하 시스이,
+        하타케 카카시, 우즈마키 나루토가 뒤를 이었습니다. 사진: Jumpcomics
         <button className="more block text-[#ccc]">
           <span>더보기</span>
         </button>
