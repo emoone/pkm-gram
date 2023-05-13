@@ -6,7 +6,7 @@ import { InstarGram } from '../../../uis/icons/InstarGram';
 
 export default function HeaderComponent() {
   return (
-    <header className="headerCon sticky top-0 bg-white z-[1]">
+    <header className="headerCon sticky top-0 bg-white z-[2]">
       <nav
         className={cn(
           'contentInner flex flex-col justify-center gap-y-[5px] items-center px-20 border-b-[1px] border-[#e6e6e6] h-76',

@@ -20,7 +20,7 @@ const CustomModal = (props: CustomModalProps) => {
   return (
     <div
       id="ModalContainer"
-      className="z-[100] flex items-center justify-center w-full h-full fixed top-0 left-0 bg-opacity-50">
+      className="fixed z-[100] flex items-center justify-center w-full h-full top-0 left-0 bg-opacity-50">
       <div
         id="overLay"
         className="modalOverLay absolute top-0 left-0 w-full h-full bg-[#0000007f]"

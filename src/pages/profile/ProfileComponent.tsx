@@ -59,6 +59,7 @@ export default function ProfileComponent() {
                 key={index}
                 imgPath={item}
                 onClick={() => {
+                  console.log('layer');
                   openPostCardLayer({ imgPath: item });
                 }}
               />
