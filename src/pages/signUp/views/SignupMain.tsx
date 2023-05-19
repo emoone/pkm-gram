@@ -1,12 +1,28 @@
+import { SubmitHandler, useForm } from 'react-hook-form';
+
 import { CustomInput } from '../../../components/common/customInput';
 import { Link } from 'react-router-dom';
 import cn from 'clsx';
+import { signupValidation } from '../../../lib/yupResolver';
 import { useState } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
 
+interface SignupPropsType {
+  email: string;
+  userName: string;
+  password: string;
+}
 export default function SignupMain() {
-  const [email, setEmail] = useState('');
-  const [userName, setUserName] = useState('');
-  const [passWord, setPassWord] = useState('');
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<SignupPropsType>({ resolver: yupResolver(signupValidation) });
+
+  const onSubmit: SubmitHandler<SignupPropsType> = data => {
+    console.log('data', data, errors);
+  };
   return (
     <div
       className={cn(
@@ -15,7 +31,7 @@ export default function SignupMain() {
       )}>
       {/* signUpArea */}
       <form
-        action=""
+        onSubmit={handleSubmit(onSubmit)}
         className={cn(
           'flex flex-col items-center gap-y-[10px] rounded-3 px-[40px] pt-[40px]',
           'ssm:border ssm:border-solid ssm:border-[#e6e6e6]',
@@ -33,31 +49,24 @@ export default function SignupMain() {
             )}
           /> */}
           <CustomInput
-            value={email}
+            register={register('email')}
             type="email"
-            onChange={(e: any) => {
-              setEmail(e.target.value);
-            }}
             placeHolder="Email"
             className="block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] "
           />
           <CustomInput
-            value={userName}
+            register={register('userName')}
             type="text"
             placeHolder="UserName"
             className={cn(
               'block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full bg-transparent',
             )}
-            onChange={(e: any) => {
-              setUserName(e.target.value);
-            }}
           />
 
           <CustomInput
+            register={register('password')}
             type="password"
-            value={passWord}
             placeHolder="Password"
-            onChange={(e: any) => setPassWord(e.target.value)}
             className={cn(
               'block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full bg-transparent',
             )}

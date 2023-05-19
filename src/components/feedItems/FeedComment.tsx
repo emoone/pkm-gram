@@ -1,22 +1,36 @@
 import { AirPlane, BookMark, Heart, SpeechBubble } from '../../uis/icons';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { CustomInput } from '../common/customInput';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { commentValidation } from '../../lib/yupResolver';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+interface CommentPropsType {
+  comment: string;
+}
 
 /**
  * description, like, comment, dm, bookmark 등 정보 모음
  * @returns
  */
 export function FeedComment() {
-  const [comment, setComment] = useState('');
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<CommentPropsType>({ resolver: yupResolver(commentValidation) });
+
+  const onSubmit: SubmitHandler<CommentPropsType> = data => {
+    console.log('data', data, errors);
+  };
 
   const DES1 =
     '팬들을 대상으로 488개의 캐릭터 순위를 선정하는 투표를 진행했습니다. 무려 460만명의 팬들이 투표에 참여했는데요. 1위 캐릭터는 나미카제 미나토가 선정됐으며, 2위에는 우치하 이타치, 3위 하루노 사쿠라, 4위 우치하 시스이, 하타케 카카시, 우즈마키 나루토가 뒤를 이었습니다. 사진: Jumpcomics';
   const DES2 =
     '팬들을 대상으로 488개의 캐릭터 순위를 선정하는 투표를 진행했습니다. \n무려 460만명의 팬들이 투표에 참여했는데요.\n 1위 캐릭터는 나미카제 미나토가 선정됐으며, 2위에는 우치하 이타치, 3위 하루노 사쿠라, 4위 우치하 시스이, 하타케 카카시, 우즈마키 나루토가 뒤를 이었습니다.사진: Jumpcomics';
 
-  console.log(DES1, DES2);
   return (
     <section className="feedBottom pt-[20px] px-[16px] md:px-0">
       <div className="statusCon flex gap-x-[5px]">
@@ -54,18 +68,17 @@ export function FeedComment() {
       <button type="button" className="showCommentList">
         댓글 모두 보기
       </button>
-      <form className="commentForm flex items-center px-[.5rem]">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="commentForm flex items-center px-[.5rem]">
         <CustomInput
+          register={register('comment')}
           className="p-0"
           placeHolder="add Comment..."
-          value={comment}
-          onChange={e => {
-            setComment(e.target.value);
-          }}
         />
-        {comment.length > 0 && (
+        {register.name && (
           <button
-            type="button"
+            type="submit"
             className="text-[#0095f6] text-[.7rem] font-semibold hover:text-black">
             Submit
           </button>

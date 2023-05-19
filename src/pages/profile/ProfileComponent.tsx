@@ -9,7 +9,7 @@ import { useState } from 'react';
 export default function ProfileComponent() {
   const { loginId } = useParams();
 
-  const [checked, setCecked] = useState('posts');
+  const [checked, setChecked] = useState('posts');
 
   // TODO: 임시 이미지 샘플 삭제 예정
   const smapleImg = [
