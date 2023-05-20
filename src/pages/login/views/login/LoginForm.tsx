@@ -1,10 +1,5 @@
 import { Dollar, InstarGram } from '../../../../uis/icons';
-import {
-  Resolver,
-  SubmitErrorHandler,
-  SubmitHandler,
-  useForm,
-} from 'react-hook-form';
+import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
 
 import { CustomInput } from '../../../../components/common/customInput';
 import { Link } from 'react-router-dom';
@@ -29,13 +24,15 @@ export default function LoginForm() {
     console.log('data', data, errors);
   };
 
-  console.log('errors', errors);
-  // console.log(watch('password'));
   return (
     <div className={cn('userInfo flex grow-[1] flex-col gap-y-[10px]', '')}>
       <div>
-        <p>email: {watch('email')}</p>
-        <p>password: {watch('password')}</p>
+        <p className="text-[#E30425] font-bold text-[.8rem]">
+          email: {watch('email')}
+        </p>
+        <p className="text-[#E30425] font-bold text-[.8rem]">
+          password: {watch('password')}
+        </p>
       </div>
       {/* loginFormCol */}
       <div
@@ -63,7 +60,11 @@ export default function LoginForm() {
               )}
             />
 
-            {errors.email && <p>{errors.email.message}</p>}
+            {errors.email && (
+              <p className="text-[#E30425] font-bold text-[.8rem]">
+                {errors.email.message}
+              </p>
+            )}
             <CustomInput
               register={register('password')}
               type="password"
@@ -72,7 +73,11 @@ export default function LoginForm() {
                 'block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full bg-transparent',
               )}
             />
-            {errors.password && <p>{errors.password.message}</p>}
+            {errors.password && (
+              <p className="text-[#E30425] font-bold text-[.8rem]">
+                {errors.password.message}
+              </p>
+            )}
           </div>
 
           {/* btnArea */}
