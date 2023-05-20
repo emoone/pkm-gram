@@ -34,7 +34,7 @@ export function FeedImg() {
         modules={[Navigation, Pagination]}>
         {[...Array(10)].map((item, index) => {
           return (
-            <SwiperSlide key={index} tag="div">
+            <SwiperSlide key={index} tag="div" className="aspect-[1/1]">
               <picture className="block bg-red-300">
                 <source />
                 <img

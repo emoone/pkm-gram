@@ -2,7 +2,7 @@ import PostCard from '../../components/post/PostCard';
 import ProfileContent from './views/ProfileContent';
 import ProfileImage from './views/ProfileImage';
 import cn from 'clsx';
-import { openPostCardLayer } from '../../components/layer/postCard';
+import { openPostCardModal } from '../../components/layer/postCard';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -60,7 +60,7 @@ export default function ProfileComponent() {
                 imgPath={item}
                 onClick={() => {
                   console.log('layer');
-                  openPostCardLayer({ imgPath: item });
+                  openPostCardModal({ imgPath: item });
                 }}
               />
             );

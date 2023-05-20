@@ -19,6 +19,7 @@
     "@types/yup": "^0.32.0",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
+    "axios": "^1.4.0",
     "clsx": "^1.2.1",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",

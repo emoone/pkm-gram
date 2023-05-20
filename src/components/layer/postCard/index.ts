@@ -1,1 +1,1 @@
-export * from './PostCardLayer';
+export * from './PostCardModal';

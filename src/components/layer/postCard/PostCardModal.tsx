@@ -10,7 +10,7 @@ interface PropsType {
   imgPath: string;
 }
 
-export function closePostCardLayer() {
+export function closePostCardModal() {
   ModalInstance.getInstance().delete(POST_CARD_LAYER_KEY);
 }
 
@@ -19,27 +19,27 @@ export function closePostCardLayer() {
  * TODO: 레이어 작업 수정 필요. 최상위 wrapper 실제 content 영역만큼 줄이고 싶은데 안됨.
  * @param props
  */
-export function openPostCardLayer(props: PropsType) {
+export function openPostCardModal(props: PropsType) {
   const { imgPath } = props;
   ModalInstance.getInstance().push({
     key: POST_CARD_LAYER_KEY,
     shouldCloseOnOverlayClick: true,
-    component: <PostCardLayerComponent imgPath={imgPath} />,
+    component: <PostCardModalComponent imgPath={imgPath} />,
   });
 }
 
-export default function PostCardLayerComponent(props: PropsType) {
+export default function PostCardModalComponent(props: PropsType) {
   const { imgPath } = props;
 
   return (
-    <div className=" z-[1] relative rounded-[5px] w-full max-w-[90vw] bg-orange-400 ">
+    <div className=" z-[1] relative rounded-[5px] w-full h-full max-w-[90vw] max-h-[90vh] bg-orange-400 overflow-hidden">
       <CloseBtn
         className="absolute top-0 right-0 z-[2]"
-        onClick={closePostCardLayer}
+        onClick={closePostCardModal}
       />
       <div
         className={cn(
-          'flex bg-white flex-col items-stretch gap-x-[5px] contentCon',
+          'flex bg-white flex-col items-stretch gap-x-[5px] contentCon h-[inherit]',
           'md:flex-row',
         )}>
         <div className="shrink-[1] grow-[1] overflow-hidden inline-flex items-center md:w-[450px] aspect-[1/1]">
