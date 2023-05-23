@@ -1,11 +1,11 @@
-import { IconsContext } from './IconsContext';
+import { IconsContext } from '..';
 
 export function Search(props: IconsContext) {
   const { width, height } = props;
 
   return (
     <svg
-      className="icon search w-full"
+      className="w-full icon search"
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}

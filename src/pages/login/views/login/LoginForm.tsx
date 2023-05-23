@@ -1,5 +1,5 @@
 import { Dollar, InstarGram } from '../../../../uis/icons';
-import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { CustomInput } from '../../../../components/common/customInput';
 import { Link } from 'react-router-dom';
@@ -7,14 +7,21 @@ import cn from 'clsx';
 import { loginValidation } from '../../../../lib/yupResolver';
 import { yupResolver } from '@hookform/resolvers/yup';
 
+interface OptionsProps {
+  index: number;
+  name: string;
+  value: string;
+}
 interface LoginPropsType {
   email: string;
   password: string;
+  options: OptionsProps[];
 }
 
 export default function LoginForm() {
   const {
     register,
+    setError,
     handleSubmit,
     watch,
     formState: { errors },
@@ -22,6 +29,11 @@ export default function LoginForm() {
 
   const onSubmit: SubmitHandler<LoginPropsType> = data => {
     console.log('data', data, errors);
+    // apiErrorSet
+    // setError('root', {
+    //   type: 'server',
+    //   message:'Login Faild'
+    // })
   };
 
   return (
@@ -79,7 +91,7 @@ export default function LoginForm() {
               </p>
             )}
           </div>
-
+          {errors.root && <p>{errors.root.message}</p>}
           {/* btnArea */}
           <button
             type="submit"

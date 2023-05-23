@@ -1,4 +1,4 @@
-import { IconsContext } from './IconsContext';
+import { IconsContext } from '..';
 import cn from 'clsx';
 
 export function Heart(props: IconsContext) {

@@ -1,4 +1,4 @@
-import { IconsContext } from './IconsContext';
+import { IconsContext } from '..';
 
 export function Menu(props: IconsContext) {
   const { width = '24', height = '24' } = props;

@@ -1,4 +1,4 @@
-import { IconsContext } from './IconsContext';
+import { IconsContext } from '..';
 
 export function BookMark(props: IconsContext) {
   const { width = '24', height = '24', color = '#000' } = props;
