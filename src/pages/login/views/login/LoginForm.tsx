@@ -1,5 +1,11 @@
 import { Dollar, InstarGram } from '../../../../uis/icons';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+} from '../../../../modules/store/counter/counterReducer';
+import { useAppDispatch, useAppSelector } from '../../../../modules/store';
 
 import { CustomInput } from '../../../../components/common/customInput';
 import { Link } from 'react-router-dom';
@@ -36,8 +42,28 @@ export default function LoginForm() {
     // })
   };
 
+  const count = useAppSelector(state => state.counter.value);
+  const dispatch = useAppDispatch();
+
   return (
     <div className={cn('userInfo flex grow-[1] flex-col gap-y-[10px]', '')}>
+      <div className="flex flex-col">
+        <button
+          type="button"
+          onClick={() => {
+            dispatch(increment());
+          }}>
+          Increment
+        </button>
+        <h1>{count}</h1>
+        <button
+          type="button"
+          onClick={() => {
+            dispatch(decrement());
+          }}>
+          Decrement
+        </button>
+      </div>
       <div>
         <p className="text-[#E30425] font-bold text-[.8rem]">
           email: {watch('email')}

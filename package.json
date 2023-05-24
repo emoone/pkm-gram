@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/eslint-parser": "^7.19.1",
     "@hookform/resolvers": "^3.1.0",
+    "@reduxjs/toolkit": "^1.9.5",
     "@savvywombat/tailwindcss-grid-areas": "^3.0.0",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@testing-library/jest-dom": "^5.16.5",
@@ -32,6 +33,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
     "rxjs": "^7.8.1",
