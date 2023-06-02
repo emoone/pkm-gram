@@ -1,6 +1,6 @@
 import './styles/main.css';
 
-import { ModalContainer } from './lib/modal';
+import { ModalContainer } from './libs/modal';
 import RootRoutes from './modules/RootRoutes';
 
 function App() {

@@ -1,16 +1,14 @@
 import { Dollar, InstarGram } from '../../../../uis/icons';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-} from '../../../../modules/store/counter/counterReducer';
-import { useAppDispatch, useAppSelector } from '../../../../modules/store';
 
 import { CustomInput } from '../../../../components/common/customInput';
 import { Link } from 'react-router-dom';
 import cn from 'clsx';
-import { loginValidation } from '../../../../lib/yupResolver';
+import getBaseData from '../../../../modules/api/getBaseData';
+import { login } from '../../../../modules/api/auth';
+import { loginValidation } from '../../../../libs/yupResolver';
+import { type } from 'os';
+import { useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 interface OptionsProps {
@@ -35,35 +33,21 @@ export default function LoginForm() {
 
   const onSubmit: SubmitHandler<LoginPropsType> = data => {
     console.log('data', data, errors);
-    // apiErrorSet
-    // setError('root', {
-    //   type: 'server',
-    //   message:'Login Faild'
-    // })
+    const res = login({ email: data.email, password: data.password });
+    res.then((res: any) => {
+      console.log(res);
+      const { status } = res;
+      if (status) {
+        console.log(status);
+      } else {
+        setError('root', { type: 'server', message: `${res.message}` });
+        console.error(errors);
+      }
+    });
   };
-
-  const count = useAppSelector(state => state.counter.value);
-  const dispatch = useAppDispatch();
 
   return (
     <div className={cn('userInfo flex grow-[1] flex-col gap-y-[10px]', '')}>
-      <div className="flex flex-col">
-        <button
-          type="button"
-          onClick={() => {
-            dispatch(increment());
-          }}>
-          Increment
-        </button>
-        <h1>{count}</h1>
-        <button
-          type="button"
-          onClick={() => {
-            dispatch(decrement());
-          }}>
-          Decrement
-        </button>
-      </div>
       <div>
         <p className="text-[#E30425] font-bold text-[.8rem]">
           email: {watch('email')}

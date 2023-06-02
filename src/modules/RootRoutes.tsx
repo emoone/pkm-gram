@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
+import { ApiTest } from '../pages/apiTest';
 import HomeComponent from '../pages/home/HomeComponent';
 import LoginComponent from '../pages/login/LoginComponent';
 import ProfileComponent from '../pages/profile/ProfileComponent';
@@ -14,6 +15,7 @@ export default function RootRoutes() {
         <Route path="/account/login" element={<LoginComponent />} />
         <Route path="/account/emailsignup" element={<SignupComponent />} />
         <Route path="/account/:loginId" element={<ProfileComponent />} />
+        <Route path="/test" element={<ApiTest />} />
       </Route>
     </Routes>
   );

@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { CustomInput } from '../common/customInput';
 import { Link } from 'react-router-dom';
-import { commentValidation } from '../../lib/yupResolver';
+import { commentValidation } from '../../libs/yupResolver';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 interface CommentPropsType {

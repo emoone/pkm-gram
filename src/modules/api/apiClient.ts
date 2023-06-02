@@ -1,7 +1,7 @@
-import axios from 'axios';
 import _ from 'lodash';
+import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const apiClient = axios.create({
   baseURL: BASE_URL,
@@ -33,6 +33,7 @@ apiClient.interceptors.response.use(
       data: result,
       status: true,
     };
+
     return Promise.resolve(resultState);
   },
   error => {
@@ -49,7 +50,7 @@ apiClient.interceptors.response.use(
     if (_.has(data, 'error')) {
       errors.error = data.error;
     }
-
+    console.log('error');
     return Promise.resolve(errors);
   },
 );

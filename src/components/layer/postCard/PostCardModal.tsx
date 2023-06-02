@@ -1,7 +1,7 @@
 import { FeedComment, FeedImg, FeedUserInfo } from '../../feedItems';
 
-import CloseBtn from '../../../lib/modal/CloseBtn';
-import { ModalInstance } from '../../../lib/modal';
+import CloseBtn from '../../../libs/modal/CloseBtn';
+import { ModalInstance } from '../../../libs/modal';
 import cn from 'clsx';
 
 const POST_CARD_LAYER_KEY = 'postCardLayer';

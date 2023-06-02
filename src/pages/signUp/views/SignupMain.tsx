@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { CustomInput } from '../../../components/common/customInput';
 import { Link } from 'react-router-dom';
 import cn from 'clsx';
-import { signupValidation } from '../../../lib/yupResolver';
+import { signupValidation } from '../../../libs/yupResolver';
 import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 
