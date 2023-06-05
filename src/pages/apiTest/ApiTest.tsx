@@ -7,10 +7,6 @@ export function ApiTest() {
   const count = useAppSelector(state => state.counter.value);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    // console.log('token', getToken());
-  });
-
   return (
     <section className="contentWp min-h-[70vh]">
       <div className="group1">

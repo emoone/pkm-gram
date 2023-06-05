@@ -3,12 +3,10 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { CustomInput } from '../../../../components/common/customInput';
 import { Link } from 'react-router-dom';
+import { UserSession } from '../../../../utils/UserSession';
 import cn from 'clsx';
-import getBaseData from '../../../../modules/api/getBaseData';
 import { login } from '../../../../modules/api/auth';
 import { loginValidation } from '../../../../libs/yupResolver';
-import { type } from 'os';
-import { useEffect } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 interface OptionsProps {
@@ -32,13 +30,11 @@ export default function LoginForm() {
   } = useForm<LoginPropsType>({ resolver: yupResolver(loginValidation) });
 
   const onSubmit: SubmitHandler<LoginPropsType> = data => {
-    console.log('data', data, errors);
     const res = login({ email: data.email, password: data.password });
     res.then((res: any) => {
-      console.log(res);
       const { status } = res;
       if (status) {
-        console.log(status);
+        UserSession.setUserInfo(res.data);
       } else {
         setError('root', { type: 'server', message: `${res.message}` });
         console.error(errors);
