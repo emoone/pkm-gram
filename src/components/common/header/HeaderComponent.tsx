@@ -1,17 +1,24 @@
 import { Compass, Heart, Logout, Search, User } from '../../../uis/icons';
+import { Link, useNavigate } from 'react-router-dom';
+import {
+  TokenType,
+  removeAccessToken,
+  removeRefreshToken,
+} from '../../../modules/store/userSession/userSessionReducer';
+import { persistor, store } from '../../../modules/store';
 
 import { InstarGram } from '../../../uis/icons/InstarGram';
-import { Link } from 'react-router-dom';
 import { UserSession } from '../../../utils/UserSession';
 import cn from 'clsx';
 import { useEffect } from 'react';
 
 export default function HeaderComponent() {
-  const { token } = UserSession.getTokens();
-
-  useEffect(() => {
-    console.log('token', token);
-  }, [token]);
+  const token = store.getState().auth.accessToken;
+  const navigate = useNavigate();
+  // useEffect(() => {
+  //   console.log(token);
+  // }, [store]);
+  console.log('headerToken', token);
   return (
     <header className="headerCon sticky top-0 bg-white z-[2]">
       <nav
@@ -53,7 +60,9 @@ export default function HeaderComponent() {
           {token ? (
             <button
               onClick={() => {
-                UserSession.removeAccessToken();
+                store.dispatch(removeAccessToken(TokenType.REMOVE_ACCESS));
+                store.dispatch(removeRefreshToken());
+                navigate('/');
               }}
               type="button"
               className="inline-block">

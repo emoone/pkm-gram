@@ -2,6 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 import { ReactElement } from 'react';
 import { UserSession } from '../utils/UserSession';
+import { store } from './store';
 
 interface PrivateRouteProps {
   children?: ReactElement;
@@ -11,7 +12,7 @@ interface PrivateRouteProps {
 export default function PrivateRoute({
   authentication,
 }: PrivateRouteProps): React.ReactElement | null {
-  const { token } = UserSession.getTokens();
+  const token = store.getState().auth.accessToken;
 
   /**
    * token 없을경우 : null 반환

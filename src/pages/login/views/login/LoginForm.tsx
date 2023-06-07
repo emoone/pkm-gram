@@ -1,12 +1,17 @@
 import { Dollar, InstarGram } from '../../../../uis/icons';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, redirect, useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import {
+  setAccessToken,
+  setRefreshToken,
+} from '../../../../modules/store/userSession/userSessionReducer';
 
 import { CustomInput } from '../../../../components/common/customInput';
 import { UserSession } from '../../../../utils/UserSession';
 import cn from 'clsx';
 import { login } from '../../../../modules/api/auth';
 import { loginValidation } from '../../../../libs/yupResolver';
+import { store } from '../../../../modules/store';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 interface OptionsProps {
@@ -21,7 +26,7 @@ interface LoginPropsType {
 }
 
 export default function LoginForm() {
-  const movePage = useNavigate();
+  const navigate = useNavigate();
   const {
     register,
     setError,
@@ -35,8 +40,11 @@ export default function LoginForm() {
     res.then((res: any) => {
       const { status } = res;
       if (status) {
-        UserSession.setUserInfo(res.data);
-        movePage('/');
+        console.log(res.data);
+        store.dispatch(setAccessToken(res.data.access_token));
+        store.dispatch(setRefreshToken(res.data.refresh_token));
+
+        navigate('/');
       } else {
         setError('root', { type: 'server', message: `${res.message}` });
         console.error(errors);

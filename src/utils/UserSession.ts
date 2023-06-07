@@ -40,6 +40,11 @@ export class UserSession {
     };
   }
 
+  static removeTokens() {
+    localStorage.removeItem(this.USER_ACCESS_TOKEN_KEY);
+    localStorage.removeItem(this.USER_REFRESH_TOKEN_KEY);
+  }
+
   /**
    * ANCHOR: accessToken 삭제
    */
