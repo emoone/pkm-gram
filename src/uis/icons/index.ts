@@ -10,3 +10,4 @@ export * from './BookMark';
 export * from './InstarGram';
 export * from './Arrow';
 export * from './Close';
+export * from './Logout';

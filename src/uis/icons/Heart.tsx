@@ -1,5 +1,4 @@
 import { IconsContext } from '..';
-import cn from 'clsx';
 
 export function Heart(props: IconsContext) {
   const { width = 24, height = 24, className = '', color = '#000' } = props;

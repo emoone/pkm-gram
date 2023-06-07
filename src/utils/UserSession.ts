@@ -21,8 +21,6 @@ export class UserSession {
    * localStorage에 accessToken, refreshToken 저장하기
    */
   static setUserInfo = (data: any): void => {
-    console.log('data', data);
-    // if (!accessToken) localStorage.setItem(this.SET_USER_ACCESS_TOKEN, '');
     localStorage.setItem(this.USER_ACCESS_TOKEN_KEY, data.access_token);
     localStorage.setItem(this.USER_REFRESH_TOKEN_KEY, data.refresh_token);
   };
@@ -42,8 +40,17 @@ export class UserSession {
     };
   }
 
-  static removeTokens(): void {
-    localStorage.removeItem(this.USER_ACCESS_TOKEN_KEY);
-    localStorage.removeItem(this.USER_REFRESH_TOKEN_KEY);
+  /**
+   * ANCHOR: accessToken 삭제
+   */
+  static removeAccessToken(): void {
+    return localStorage.removeItem(this.USER_ACCESS_TOKEN_KEY);
+  }
+
+  /**
+   * ANCHOR: refreshToken 삭제
+   */
+  static removeRefreshToken(): void {
+    return localStorage.removeItem(this.USER_REFRESH_TOKEN_KEY);
   }
 }

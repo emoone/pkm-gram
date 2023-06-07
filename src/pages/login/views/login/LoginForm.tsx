@@ -1,8 +1,8 @@
 import { Dollar, InstarGram } from '../../../../uis/icons';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { CustomInput } from '../../../../components/common/customInput';
-import { Link } from 'react-router-dom';
 import { UserSession } from '../../../../utils/UserSession';
 import cn from 'clsx';
 import { login } from '../../../../modules/api/auth';
@@ -21,6 +21,7 @@ interface LoginPropsType {
 }
 
 export default function LoginForm() {
+  const movePage = useNavigate();
   const {
     register,
     setError,
@@ -35,6 +36,7 @@ export default function LoginForm() {
       const { status } = res;
       if (status) {
         UserSession.setUserInfo(res.data);
+        movePage('/');
       } else {
         setError('root', { type: 'server', message: `${res.message}` });
         console.error(errors);

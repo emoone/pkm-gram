@@ -1,10 +1,17 @@
-import { Link } from 'react-router-dom';
-import { Compass, Heart, Search, User } from '../../../uis/icons';
+import { Compass, Heart, Logout, Search, User } from '../../../uis/icons';
 
-import cn from 'clsx';
 import { InstarGram } from '../../../uis/icons/InstarGram';
+import { Link } from 'react-router-dom';
+import { UserSession } from '../../../utils/UserSession';
+import cn from 'clsx';
+import { useEffect } from 'react';
 
 export default function HeaderComponent() {
+  const { token } = UserSession.getTokens();
+
+  useEffect(() => {
+    console.log('token', token);
+  }, [token]);
   return (
     <header className="headerCon sticky top-0 bg-white z-[2]">
       <nav
@@ -43,6 +50,19 @@ export default function HeaderComponent() {
         {/* searchArea */}
         {/* snbMenu */}
         <div className={cn('snbMenu flex gap-x-[30px]', '[&>.icon]:w-[24px]')}>
+          {token ? (
+            <button
+              onClick={() => {
+                UserSession.removeAccessToken();
+              }}
+              type="button"
+              className="inline-block">
+              <Logout />
+            </button>
+          ) : (
+            <Link to="/account/login">login</Link>
+          )}
+
           <Link to="">
             <Compass />
           </Link>

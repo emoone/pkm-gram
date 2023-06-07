@@ -7,7 +7,6 @@ import PrivateRoute from './PrivateRoute';
 import ProfileComponent from '../pages/profile/ProfileComponent';
 import SignupComponent from '../pages/signUp/SignupComponent';
 import TheLayout from '../components/common/TheLayout';
-import { UserSession } from '../utils/UserSession';
 
 export default function RootRoutes() {
   return (
@@ -19,7 +18,6 @@ export default function RootRoutes() {
           <Route path="/account/login" element={<LoginComponent />} />
           <Route path="/account/emailsignup" element={<SignupComponent />} />
         </Route>
-        {/* <Route path="/account/login" element={<LoginComponent />} /> */}
 
         <Route path="/account/:loginId" element={<ProfileComponent />} />
         <Route path="/test" element={<ApiTest />} />
