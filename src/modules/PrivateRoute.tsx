@@ -1,8 +1,8 @@
 import { Navigate, Outlet } from 'react-router-dom';
+import { RootState, store } from './store';
 
 import { ReactElement } from 'react';
-import { UserSession } from '../utils/UserSession';
-import { store } from './store';
+import { useSelector } from 'react-redux';
 
 interface PrivateRouteProps {
   children?: ReactElement;
@@ -12,7 +12,7 @@ interface PrivateRouteProps {
 export default function PrivateRoute({
   authentication,
 }: PrivateRouteProps): React.ReactElement | null {
-  const token = store.getState().auth.accessToken;
+  const token = useSelector((state: RootState) => state.auth.accessToken);
 
   /**
    * token 없을경우 : null 반환

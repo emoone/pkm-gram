@@ -18,8 +18,10 @@ export default function RootRoutes() {
           <Route path="/account/login" element={<LoginComponent />} />
           <Route path="/account/emailsignup" element={<SignupComponent />} />
         </Route>
+        <Route element={<PrivateRoute authentication={true} />}>
+          <Route path="/account/:loginId" element={<ProfileComponent />} />
+        </Route>
 
-        <Route path="/account/:loginId" element={<ProfileComponent />} />
         <Route path="/test" element={<ApiTest />} />
       </Route>
     </Routes>

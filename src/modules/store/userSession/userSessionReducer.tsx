@@ -1,4 +1,3 @@
-import { AppDispatch, RootState } from '../store';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 import { persistReducer } from 'redux-persist';
