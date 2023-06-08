@@ -1,24 +1,25 @@
 import { Compass, Heart, Logout, Search, User } from '../../../uis/icons';
-import { Link, useNavigate } from 'react-router-dom';
 import {
-  TokenType,
   removeAccessToken,
   removeRefreshToken,
 } from '../../../modules/store/userSession/userSessionReducer';
-import { persistor, store } from '../../../modules/store';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { InstarGram } from '../../../uis/icons/InstarGram';
-import { UserSession } from '../../../utils/UserSession';
+import { Link } from 'react-router-dom';
+import { RootState } from '../../../modules/store';
 import cn from 'clsx';
-import { useEffect } from 'react';
+import { useCallback } from 'react';
 
 export default function HeaderComponent() {
-  const token = store.getState().auth.accessToken;
-  const navigate = useNavigate();
-  // useEffect(() => {
-  //   console.log(token);
-  // }, [store]);
-  console.log('headerToken', token);
+  const dispatch = useDispatch();
+  const token = useSelector((state: RootState) => state.auth.accessToken);
+
+  const logoutHandler = useCallback(() => {
+    dispatch(removeAccessToken());
+    dispatch(removeRefreshToken());
+  }, []);
+
   return (
     <header className="headerCon sticky top-0 bg-white z-[2]">
       <nav
@@ -59,11 +60,7 @@ export default function HeaderComponent() {
         <div className={cn('snbMenu flex gap-x-[30px]', '[&>.icon]:w-[24px]')}>
           {token ? (
             <button
-              onClick={() => {
-                store.dispatch(removeAccessToken(TokenType.REMOVE_ACCESS));
-                store.dispatch(removeRefreshToken());
-                navigate('/');
-              }}
+              onClick={logoutHandler}
               type="button"
               className="inline-block">
               <Logout />

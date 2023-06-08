@@ -37,10 +37,7 @@ export const userSessionSlice = createSlice({
     setRefreshToken: (state, action: PayloadAction<TokenType.SET_REFRESH>) => {
       state.refreshToken = action.payload;
     },
-    removeAccessToken: (
-      state,
-      action: PayloadAction<TokenType.REMOVE_ACCESS>,
-    ) => {
+    removeAccessToken: state => {
       state.accessToken = null;
     },
     removeRefreshToken: state => {
@@ -70,15 +67,3 @@ const authPersistConfig = {
 const persistedReducer = persistReducer(authPersistConfig, userSessionReducer);
 
 export default persistedReducer;
-
-// ThunkAction: 토큰 설정 및 저장
-// export const setTokenAndSave =
-//   (token: string) =>
-//   async (dispatch: AppDispatch, getState: () => RootState) => {
-//     dispatch(setTokens(token));
-
-//     // localStorage token 저장
-//     const { accessToken, refreshToken } = getState().auth;
-//     localStorage.setItem(USER_ACCESS_TOKEN_KEY, accessToken || '');
-//     localStorage.setItem(USER_REFRESH_TOKEN_KEY, refreshToken || '');
-//   };

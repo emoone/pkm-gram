@@ -1,5 +1,5 @@
 import { Dollar, InstarGram } from '../../../../uis/icons';
-import { Link, redirect, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import {
   setAccessToken,
@@ -7,11 +7,10 @@ import {
 } from '../../../../modules/store/userSession/userSessionReducer';
 
 import { CustomInput } from '../../../../components/common/customInput';
-import { UserSession } from '../../../../utils/UserSession';
 import cn from 'clsx';
 import { login } from '../../../../modules/api/auth';
 import { loginValidation } from '../../../../libs/yupResolver';
-import { store } from '../../../../modules/store';
+import { useDispatch } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 interface OptionsProps {
@@ -27,6 +26,13 @@ interface LoginPropsType {
 
 export default function LoginForm() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const loginHandle = (data: any) => {
+    if (!data) return;
+    dispatch(setAccessToken(data.access_token));
+    dispatch(setRefreshToken(data.refresh_token));
+    navigate('/');
+  };
   const {
     register,
     setError,
@@ -41,10 +47,7 @@ export default function LoginForm() {
       const { status } = res;
       if (status) {
         console.log(res.data);
-        store.dispatch(setAccessToken(res.data.access_token));
-        store.dispatch(setRefreshToken(res.data.refresh_token));
-
-        navigate('/');
+        loginHandle(res.data);
       } else {
         setError('root', { type: 'server', message: `${res.message}` });
         console.error(errors);
