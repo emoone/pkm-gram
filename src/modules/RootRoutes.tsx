@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { ApiTest } from '../pages/apiTest';
+import { ErrorComponent } from '../pages/error';
 import HomeComponent from '../pages/home/HomeComponent';
 import LoginComponent from '../pages/login/LoginComponent';
 import PrivateRoute from './PrivateRoute';
@@ -23,6 +24,7 @@ export default function RootRoutes() {
         </Route>
 
         <Route path="/test" element={<ApiTest />} />
+        <Route path="/*" element={<ErrorComponent.NoFound />} />
       </Route>
     </Routes>
   );
