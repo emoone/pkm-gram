@@ -47,7 +47,6 @@ export default function LoginForm() {
     res.then((res: any) => {
       const { status } = res;
       if (status) {
-        console.log(res.data);
         loginHandle(res.data);
       } else {
         setError('root', { type: 'server', message: `${res.message}` });

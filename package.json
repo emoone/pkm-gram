@@ -48,8 +48,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev": "react-scripts start",
-    "local": "env-cmd -f .env.local next dev",
+    "dev": "cp env/.env.dev .env && react-scripts start",
+    "prod": "cp env/.env.prod .env && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
