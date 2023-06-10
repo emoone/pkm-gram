@@ -1,6 +1,6 @@
 import apiClient from './apiClient';
 
-interface LoginPropsType {
+interface LoginAndSignUpPropsType {
   email: string;
   password: string;
 }
@@ -14,14 +14,28 @@ interface LoginPropsType {
  * 토큰 refresh
  */
 
-const EMAIL_DUPLICATE_CHECK = '/api/auth/:email/email-exits';
-const USER_JOIGN = '/api/auth/register';
-const EMAIL_AUTH_CODE = '/web/auth/emailauth/:authCode';
+const USER_joinUp = '/api/auth/register';
 const USER_LOGIN = '/api/auth/login';
+const EMAIL_DUPLICATE_CHECK = '/api/auth/:email/email-exits';
+const EMAIL_AUTH_CODE = '/web/auth/emailauth/:authCode';
 const GET_TOKEN_INFO = '/api/auth/token-info';
 const USER_LOGOUT = '/api/auth/logout';
 const GET_REFRESH_TOKEN = '/api/auth/token-refresh';
 
-export function login(data: LoginPropsType) {
+/**
+ * joinUpApi
+ * @param data
+ * @returns
+ */
+export function joinUp(data: LoginAndSignUpPropsType) {
+  return apiClient.post(USER_joinUp, data);
+}
+
+/**
+ * loginApi
+ * @param data
+ * @returns
+ */
+export function login(data: LoginAndSignUpPropsType) {
   return apiClient.post(USER_LOGIN, data);
 }

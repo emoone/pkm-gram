@@ -12,7 +12,7 @@ export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    increment: state => {
+    increment: (state: CounterState) => {
       console.log('increment');
       state.value += 1;
     },
@@ -27,7 +27,7 @@ export const counterSlice = createSlice({
      * 사용법 및 사용이유 더 찾아봐야겠음
      *
      */
-    incrementByAmount: (state, action: PayloadAction<number>) => {
+    incrementByAmount: (state: CounterState, action: PayloadAction<number>) => {
       console.log('action', action);
       state.value += action.payload;
     },

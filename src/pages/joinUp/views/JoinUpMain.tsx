@@ -1,27 +1,36 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { CustomInput } from '../../../components/common/customInput';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import cn from 'clsx';
-import { signupValidation } from '../../../libs/yupResolver';
-import { useState } from 'react';
+import { joginUpValidation } from '../../../libs/yupResolver';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { joinUp } from '../../../modules/api';
 
-interface SignupPropsType {
+interface JoinUpPropsType {
   email: string;
-  userName: string;
   password: string;
+  passwordConfirm: string;
 }
-export default function SignupMain() {
+export default function JoinUpMain() {
   const {
     register,
+    setError,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<SignupPropsType>({ resolver: yupResolver(signupValidation) });
-
-  const onSubmit: SubmitHandler<SignupPropsType> = data => {
-    console.log('data', data, errors);
+  } = useForm<JoinUpPropsType>({ resolver: yupResolver(joginUpValidation) });
+  const navigate = useNavigate();
+  const onSubmit: SubmitHandler<JoinUpPropsType> = data => {
+    const res = joinUp({ email: data.email, password: data.password });
+    res.then((res: any) => {
+      const { status } = res;
+      if (status) {
+        navigate('/account/login');
+      } else {
+        setError('root', { type: 'server', message: `${res.message}` });
+      }
+    });
   };
   return (
     <div
@@ -41,41 +50,37 @@ export default function SignupMain() {
         </div>
 
         <div className=" w-full userInfo flex flex-col gap-y-[5px]">
-          {/* <input
-            type="email"
-            placeholder="Email"
-            className={cn(
-              'block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full bg-transparent',
-            )}
-          /> */}
           <CustomInput
             register={register('email')}
             type="email"
             placeHolder="Email"
             className="block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] "
           />
+          {errors.email && <p>{errors.email.message}</p>}
           <CustomInput
-            register={register('userName')}
-            type="text"
-            placeHolder="UserName"
+            register={register('password')}
+            type="password"
+            placeHolder="password"
             className={cn(
               'block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full bg-transparent',
             )}
           />
-
+          {errors.password && <p>{errors.password.message}</p>}
           <CustomInput
-            register={register('password')}
+            register={register('passwordConfirm')}
             type="password"
             placeHolder="Password"
             className={cn(
               'block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full bg-transparent',
             )}
           />
+          {errors.passwordConfirm && <p>{errors.passwordConfirm.message}</p>}
+          {errors.root && <p>{errors.root.message}</p>}
         </div>
 
         {/* btnArea */}
         <button
-          type="button"
+          type="submit"
           className="btnLogin w-full ssm:mb-[20px] bg-[#3f99ed] text-white py-5 font-semibold rounded-5">
           SignUp
         </button>
