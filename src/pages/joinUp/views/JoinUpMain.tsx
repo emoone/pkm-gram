@@ -6,6 +6,7 @@ import cn from 'clsx';
 import { joginUpValidation } from '../../../libs/yupResolver';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { joinUp } from '../../../modules/api';
+import { AlertMsgComponent } from '../../../components/common/alertMsg';
 
 interface JoinUpPropsType {
   email: string;
@@ -56,7 +57,7 @@ export default function JoinUpMain() {
             placeHolder="Email"
             className="block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] "
           />
-          {errors.email && <p>{errors.email.message}</p>}
+          {errors.email && <AlertMsgComponent msg={errors.email.message} />}
           <CustomInput
             register={register('password')}
             type="password"
@@ -65,7 +66,9 @@ export default function JoinUpMain() {
               'block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full bg-transparent',
             )}
           />
-          {errors.password && <p>{errors.password.message}</p>}
+          {errors.password && (
+            <AlertMsgComponent msg={errors.password.message} />
+          )}
           <CustomInput
             register={register('passwordConfirm')}
             type="password"
@@ -74,8 +77,10 @@ export default function JoinUpMain() {
               'block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6] w-full bg-transparent',
             )}
           />
-          {errors.passwordConfirm && <p>{errors.passwordConfirm.message}</p>}
-          {errors.root && <p>{errors.root.message}</p>}
+          {errors.passwordConfirm && (
+            <AlertMsgComponent msg={errors.passwordConfirm.message} />
+          )}
+          {errors.root && <AlertMsgComponent msg={errors.root.message} />}
         </div>
 
         {/* btnArea */}

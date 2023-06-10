@@ -12,6 +12,7 @@ import { login } from '../../../../modules/api/auth';
 import { loginValidation } from '../../../../libs/yupResolver';
 import { useDispatch } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { AlertMsgComponent } from '../../../../components/common/alertMsg';
 
 interface OptionsProps {
   index: number;
@@ -91,11 +92,7 @@ export default function LoginForm() {
               )}
             />
 
-            {errors.email && (
-              <p className="text-[#E30425] font-bold text-[.8rem]">
-                {errors.email.message}
-              </p>
-            )}
+            {errors.email && <AlertMsgComponent msg={errors.email.message} />}
             <CustomInput
               register={register('password')}
               type="password"
@@ -105,12 +102,11 @@ export default function LoginForm() {
               )}
             />
             {errors.password && (
-              <p className="text-[#E30425] font-bold text-[.8rem]">
-                {errors.password.message}
-              </p>
+              <AlertMsgComponent msg={errors.password.message} />
             )}
           </div>
-          {errors.root && <p>{errors.root.message}</p>}
+          {errors.root && <AlertMsgComponent msg={errors.root.message} />}
+
           {/* btnArea */}
           <button
             type="submit"
