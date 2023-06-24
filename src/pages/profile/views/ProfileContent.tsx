@@ -4,7 +4,7 @@ interface Props {
   loginId: string | undefined;
 }
 
-export default function ProfileContent(props: Props) {
+export function ProfileContent(props: Props) {
   const { loginId } = props;
   return (
     <div className="flex flex-col gap-4 md:gap-2">

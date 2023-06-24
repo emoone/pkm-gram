@@ -1,10 +1,9 @@
 import PostCard from '../../components/post/PostCard';
-import ProfileContent from './views/ProfileContent';
-import ProfileImage from './views/ProfileImage';
 import cn from 'clsx';
 import { openPostCardModal } from '../../components/layer/postCard';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { ProfileContent, ProfileImage } from './views';
 
 export default function ProfileComponent() {
   const { loginId } = useParams();

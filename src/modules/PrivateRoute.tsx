@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { RootState, store } from './store';
+import { RootState } from './store';
 
 import { ReactElement } from 'react';
 import { useSelector } from 'react-redux';

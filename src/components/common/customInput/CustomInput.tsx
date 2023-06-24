@@ -6,6 +6,7 @@ interface PropsType {
   type?: string;
   placeHolder?: string;
   className?: string;
+  accept?: string;
   register: UseFormRegisterReturn;
 }
 export function CustomInput(props: PropsType) {
@@ -13,6 +14,7 @@ export function CustomInput(props: PropsType) {
     type = 'text',
     placeHolder = 'placeHolder',
     className = '',
+    accept,
     register,
   } = props;
 
@@ -23,6 +25,7 @@ export function CustomInput(props: PropsType) {
       {...register}
       placeholder={placeHolder}
       className={cn('focus:ring-0 w-full bg-transparent', className)}
+      accept={accept} // 미디어 파일 확장자 |audio/*|video/*|image/*|미디어 타입"
     />
   );
 }

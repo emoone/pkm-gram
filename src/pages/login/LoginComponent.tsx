@@ -1,5 +1,5 @@
-import LoginBanner from './views/loginBanner/LoginBanner';
 import LoginForm from './views/login/LoginForm';
+import LoginBanner from './views/loginBanner/LoginBanner';
 
 export default function LoginComponent() {
   return (

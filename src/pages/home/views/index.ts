@@ -1,4 +1,2 @@
-import { FeedItem } from './FeedItem';
-import { HomeMain } from './HomeMain';
-
-export { HomeMain, FeedItem };
+export * from './FeedItem';
+export * from './HomeMain';

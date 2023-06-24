@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute';
 import ProfileComponent from '../pages/profile/ProfileComponent';
 import JoinUpComponent from '../pages/joinUp/JoinUpComponent';
 import TheLayout from '../components/common/TheLayout';
+import ProfileEditComponent from '../pages/profileEdit/ProfileEditComponent';
 
 export default function RootRoutes() {
   return (
@@ -22,6 +23,7 @@ export default function RootRoutes() {
         <Route element={<PrivateRoute authentication={true} />}>
           <Route path="/account/:loginId" element={<ProfileComponent />} />
         </Route>
+        <Route path="/account/edit" element={<ProfileEditComponent />} />
 
         <Route path="/test" element={<ApiTest />} />
         <Route path="/*" element={<ErrorComponent.NoFound />} />

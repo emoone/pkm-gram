@@ -57,3 +57,19 @@ export const joginUpValidation = object({
 export const commentValidation = object({
   comment: string(),
 });
+
+// 프로필 편집 유효성체크
+export const profileEditField = object({
+  description: string(),
+  // .min(5, '최소 5자 이상 입력하세요.')
+  // .max(200, '200자 이상 안됩니다.'),
+  // gender: object({
+  //   value: string(),
+  //   label: string(),
+  // }),
+  gender: string(),
+
+  // selectedCountry: yup.object().shape({
+  // value: yup.string().required("Required"),
+  // label: yup.string().required("Required"),
+});

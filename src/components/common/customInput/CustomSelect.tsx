@@ -1,8 +1,11 @@
 import { UseFormRegisterReturn } from 'react-hook-form';
 import _ from 'lodash';
-
+export interface OptionItemType {
+  label: string;
+  value: string;
+}
 interface SelectPropsType {
-  options: any[];
+  options: OptionItemType[];
   register: UseFormRegisterReturn;
   id: string;
 }
@@ -11,9 +14,13 @@ export function CustomSelect(props: SelectPropsType) {
   return (
     <select {...register} id={id}>
       {options.map((item, index) => {
-        // if (_.isObject(item)) {
-        //   return <option key={index}>{item.value}</option>;
-        // }
+        if (!_.isArray(item)) {
+          return (
+            <option value={item.value} key={index}>
+              {item.value}
+            </option>
+          );
+        }
         return <option key={index}>{item}</option>;
       })}
     </select>
