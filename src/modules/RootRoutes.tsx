@@ -22,8 +22,8 @@ export default function RootRoutes() {
         </Route>
         <Route element={<PrivateRoute authentication={true} />}>
           <Route path="/account/:loginId" element={<ProfileComponent />} />
+          <Route path="/account/edit" element={<ProfileEditComponent />} />
         </Route>
-        <Route path="/account/edit" element={<ProfileEditComponent />} />
 
         <Route path="/test" element={<ApiTest />} />
         <Route path="/*" element={<ErrorComponent.NoFound />} />

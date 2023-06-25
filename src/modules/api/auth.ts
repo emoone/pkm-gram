@@ -12,9 +12,11 @@ interface LoginAndSignUpPropsType {
  * 토큰 정보
  * 로그아웃
  * 토큰 refresh
+ * * accesToken: 1h,
+ * * refreshToken: 1day
  */
 
-const USER_joinUp = '/api/auth/register';
+const USER_JOINUP = '/api/auth/register';
 const USER_LOGIN = '/api/auth/login';
 const EMAIL_DUPLICATE_CHECK = '/api/auth/:email/email-exits';
 const EMAIL_AUTH_CODE = '/web/auth/emailauth/:authCode';
@@ -28,7 +30,7 @@ const GET_REFRESH_TOKEN = '/api/auth/token-refresh';
  * @returns
  */
 export function joinUp(data: LoginAndSignUpPropsType) {
-  return apiClient.post(USER_joinUp, data);
+  return apiClient.post(USER_JOINUP, data);
 }
 
 /**

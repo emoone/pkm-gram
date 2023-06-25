@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import axios from 'axios';
-
+import { useSelector } from 'react-redux';
+import { RootState } from '../store';
 const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const apiClient = axios.create({
@@ -21,7 +22,16 @@ interface ErrorTypes {
   error: any;
   status: boolean;
 }
+apiClient.interceptors.request.use((request): Promise<any> => {
+  const token = useSelector((state: RootState) => state.auth.accessToken);
 
+  console.log('request', request);
+  // if (token) {
+  //   result.header;
+  // }
+  // return Promise.resolve(result);
+  return Promise.resolve(request);
+});
 /**
  * api 호출 결과 (성공 / 실패) 정의 하여 반환
  * 성공 및 실패 여부는 status 값으로 구분
@@ -37,6 +47,7 @@ apiClient.interceptors.response.use(
     return Promise.resolve(resultState);
   },
   error => {
+    console.log(error);
     const { data } = error.response;
 
     const errors: ErrorTypes = {

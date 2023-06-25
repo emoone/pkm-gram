@@ -8,6 +8,7 @@ interface PropsType {
   className?: string;
   accept?: string;
   register: UseFormRegisterReturn;
+  id?: string;
 }
 export function CustomInput(props: PropsType) {
   const {
@@ -16,11 +17,13 @@ export function CustomInput(props: PropsType) {
     className = '',
     accept,
     register,
+    id,
   } = props;
 
   // block rounded-5 border border-solid border-[#e6e6e6] focus:border-[#333] focus:color-[#e6e6e6]
   return (
     <input
+      id={id}
       type={type}
       {...register}
       placeholder={placeHolder}
