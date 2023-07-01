@@ -25,6 +25,9 @@ module.exports = {
       borderRadius: px0_10,
       border: px0_10,
       height: px0_100,
+
+      textColor: ['active'],
+      bgColor: ['active'],
       
 
       gridTemplateColumns: {

@@ -22,16 +22,7 @@ interface ErrorTypes {
   error: any;
   status: boolean;
 }
-apiClient.interceptors.request.use((request): Promise<any> => {
-  const token = useSelector((state: RootState) => state.auth.accessToken);
 
-  console.log('request', request);
-  // if (token) {
-  //   result.header;
-  // }
-  // return Promise.resolve(result);
-  return Promise.resolve(request);
-});
 /**
  * api 호출 결과 (성공 / 실패) 정의 하여 반환
  * 성공 및 실패 여부는 status 값으로 구분

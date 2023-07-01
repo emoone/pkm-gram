@@ -10,11 +10,12 @@ export function ProfileContent(props: Props) {
     <div className="flex flex-col gap-4 md:gap-2">
       <div className="flex flex-row gap-3 justify-center items-center md:justify-start">
         <h2 className="text-lg font-semibold">{loginId}</h2>
-        <button
+        <a
+          href="/account/edit"
           type="button"
           className="border-[1px] border-[#e6e6e6] p-5 text-sm rounded border-solid">
           프로필 편집
-        </button>
+        </a>
         {/* TODO: 톱니바퀴 */}
       </div>
       <div className="flex flex-col-reverse md:flex-col md:gap-3">

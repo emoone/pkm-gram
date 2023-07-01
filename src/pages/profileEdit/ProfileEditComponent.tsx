@@ -7,12 +7,15 @@ import {
 } from '../../components/common/customInput/CustomSelect';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { profileEditField } from '../../libs/yupResolver';
+import { imgUpLoad } from '../../modules/api/media';
+import { useState } from 'react';
 
 interface ProfileEditPropTypes {
   description: string;
   gender: string;
 }
 export default function ProfileEditComponent() {
+  const [navItem, setNavItem] = useState('');
   const navArr = [
     { name: '앱 및 웹사이트', link: '' },
     { name: '이메일 알림', link: '' },
@@ -49,29 +52,38 @@ export default function ProfileEditComponent() {
   const onSubmit: SubmitHandler<ProfileEditPropTypes> = data => {
     console.log('???');
     console.log(data);
+    // imgUpLoad('');
   };
   return (
-    <div className="editCon w-full max-w-[739px] mx-auto">
-      <h1>설정</h1>
-      <section className="border-solid border-[1px] border-black flex rounded-[5px] px-[10px] gap-x-[5px] py-10">
+    <div className="editCon w-full max-w-[739px] mx-auto min-h-[70vh] px-10">
+      <h1 className="text-[2rem] font-semibold">설정</h1>
+      <section className="border-solid border-[1px] border-black flex rounded-[5px] px-[10px] gap-x-[5px] h-full">
         <nav
           id="navTab"
           className={cn(
-            'flex-col hidden border-r-[1px] w-full max-w-[30%] items-start justify-start',
+            'flex-col hidden border-r-[1px] w-full max-w-[30%] items-start justify-start py-10',
             'md:flex ',
           )}>
+          <h1 className="font-bold mb-5 min-h-[24px]"></h1>
           {navArr.map((item, index) => {
             return (
-              <a
+              <button
                 key={`${item.name}-${index}`}
-                href={item.link}
-                className="whitespace-normal">
+                onClick={(e: any) => {
+                  console.log(e.target.value);
+                }}
+                // href={item.link}
+                value={item.name}
+                className={cn(
+                  'whitespace-normal py-5 text-left',
+                  'active:text-[red]',
+                )}>
                 {item.name}
-              </a>
+              </button>
             );
           })}
         </nav>
-        <article className="editForm w-full">
+        <article className="editForm w-full py-10">
           <h1 className="font-bold mb-5">프로필 편집</h1>
 
           <form
@@ -102,7 +114,6 @@ export default function ProfileEditComponent() {
                   )}
                   htmlFor="uploadProfile">
                   프로필사진 바꾸기
-                  {/* <button type="button"></button> */}
                 </label>
               </div>
             </div>
