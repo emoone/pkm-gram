@@ -52,12 +52,12 @@ export default function ProfileEditComponent() {
   const onSubmit: SubmitHandler<ProfileEditPropTypes> = data => {
     console.log('???');
     console.log(data);
-    // imgUpLoad('');
   };
+
   return (
-    <div className="editCon w-full max-w-[739px] mx-auto min-h-[70vh] px-10">
+    <div className="editCon w-full max-w-[739px] mx-auto min-h-[70vh]">
       <h1 className="text-[2rem] font-semibold">설정</h1>
-      <section className="border-solid border-[1px] border-black flex rounded-[5px] px-[10px] gap-x-[5px] h-full">
+      <section className="border-solid border-[1px] border-black flex rounded-[5px] gap-x-[5px] h-full">
         <nav
           id="navTab"
           className={cn(
@@ -71,20 +71,23 @@ export default function ProfileEditComponent() {
                 key={`${item.name}-${index}`}
                 onClick={(e: any) => {
                   console.log(e.target.value);
+                  setNavItem(e.target.value);
                 }}
                 // href={item.link}
                 value={item.name}
                 className={cn(
-                  'whitespace-normal py-5 text-left',
-                  'active:text-[red]',
+                  'whitespace-normal py-5 text-left text-[1rem] w-full px-10',
+                  {
+                    ['bg-active text-white font-medium']: navItem === item.name,
+                  },
                 )}>
                 {item.name}
               </button>
             );
           })}
         </nav>
-        <article className="editForm w-full py-10">
-          <h1 className="font-bold mb-5">프로필 편집</h1>
+        <article className="editForm w-full px-10">
+          <h1 className="font-bold mt-5 mb-4">프로필 편집</h1>
 
           <form
             className="subCon flex flex-col gap-y-[5px]"

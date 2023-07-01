@@ -15,7 +15,7 @@ module.exports = {
 
   theme: {
     fontFamily: {
-      sans: ['Roboto', 'sans-serif'],
+      sans: ['Roboto', 'Nanum Gothic','sans-serif'],
       serif: ['Merriweather', 'serif'],
     },
 
@@ -25,9 +25,14 @@ module.exports = {
       borderRadius: px0_10,
       border: px0_10,
       height: px0_100,
-
       textColor: ['active'],
       bgColor: ['active'],
+
+      colors: {
+        danger: '#E30425',
+        warning: '#E30425',
+        active:'#9B9B9B'
+      },
       
 
       gridTemplateColumns: {
