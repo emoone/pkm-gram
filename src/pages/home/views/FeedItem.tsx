@@ -13,7 +13,7 @@ export function FeedItem() {
         'md:border-solid md:border-[#e6e6e6] md:border-b-[1px]',
       )}>
       {/* top-(logo, id) */}
-      <FeedUserInfo />
+      <FeedUserInfo isDatePublish={true} isToday={true} />
       {/* top-(logo, id) */}
       {/* middle-(img) */}
       <FeedImg />

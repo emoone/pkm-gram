@@ -46,7 +46,7 @@ export default function PostCardModalComponent(props: PropsType) {
           <FeedImg />
         </div>
         <div className="md:min-w-[405px] md:max-w-[500px] grow-1 shrink-[2] pr-[5px]">
-          <FeedUserInfo />
+          <FeedUserInfo isDatePublish={true} isToday={true} />
           <FeedComment />
         </div>
       </div>

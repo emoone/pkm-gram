@@ -1,15 +1,11 @@
 import { Link } from 'react-router-dom';
-
-interface Props {
-  isToday: boolean; // 오늘 여부.
-  isDatePublish: boolean; // 날짜 노출 여부.
-}
+import { Menu } from '../../uis/icons';
 
 /**
  * 계정정보 영역 id, logo, menu
  * @returns
  */
-export function FeedUserInfo({ isToday, isDatePublish }: Props) {
+export function FeedTopTab() {
   return (
     <section className="topFeed flex items-center h-[56px]">
       <div className="mainItem w-full inline-flex items-center gap-x-[5px] ml-[5px]">
@@ -21,18 +17,19 @@ export function FeedUserInfo({ isToday, isDatePublish }: Props) {
         <div className="userInfo">
           <div className="userId">
             <span>userId</span>
-            {isDatePublish && isToday && (
+            {true && (
               <div className="timeInfo inline-block text-[#a8a8a8]">
                 <span>•</span>
                 <time className="time">3시간</time>
               </div>
             )}
           </div>
-          {isDatePublish && !isToday && (
-            <div className="mediaInfo">mediaInfo</div>
-          )}
+          {true && <div className="mediaInfo">mediaInfo</div>}
         </div>
       </div>
+      <button type="button" className="moreBtn p-[10px]">
+        <Menu />
+      </button>
     </section>
   );
 }
