@@ -7,7 +7,7 @@ interface Props {
 export function ProfileContent(props: Props) {
   const { loginId } = props;
   return (
-    <div className="flex flex-col gap-4 md:gap-2">
+    <div className="flex flex-col gap-4 md:gap-2 w-full">
       <div className="flex flex-row gap-3 justify-center items-center md:justify-start">
         <h2 className="text-lg font-semibold">{loginId}</h2>
         <a
