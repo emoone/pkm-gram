@@ -43,7 +43,7 @@ function setInterceptors(instance: AxiosInstance) {
     if (getTokenObj) {
       const { accessToken = null, refreshToken = null } =
         JSON.parse(getTokenObj);
-      token = accessToken;
+      token = JSON.parse(accessToken);
     }
 
     instance.interceptors.request.use(
