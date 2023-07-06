@@ -1,14 +1,17 @@
-import cn from 'clsx';
-import { CustomInput } from '../../components/common/customInput';
-import { SubmitHandler, useForm } from 'react-hook-form';
 import {
   CustomSelect,
   OptionItemType,
 } from '../../components/common/customInput/CustomSelect';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { profileEditField } from '../../libs/yupResolver';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useEffect, useState } from 'react';
+
+import { CustomInput } from '../../components/common/customInput';
+import { RootState } from '../../modules/store';
+import cn from 'clsx';
 import { imgUpLoad } from '../../modules/api/media';
-import { useState } from 'react';
+import { profileEditField } from '../../libs/yupResolver';
+import { useSelector } from 'react-redux';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 interface ProfileEditPropTypes {
   description: string;
@@ -16,6 +19,7 @@ interface ProfileEditPropTypes {
 }
 export default function ProfileEditComponent() {
   const [navItem, setNavItem] = useState('');
+  const [profileImg, setProfileImg] = useState('');
   const navArr = [
     { name: '앱 및 웹사이트', link: '' },
     { name: '이메일 알림', link: '' },
@@ -54,6 +58,21 @@ export default function ProfileEditComponent() {
     console.log(data);
   };
 
+  /**
+   * 이미지 업로드 api 함수
+   * @param e
+   */
+  const imgUploadHandler = (e: any) => {
+    const files = e.target.files;
+    const formData = new FormData();
+    formData.append('image', files[0]);
+
+    console.log('이미지 업로드 is', formData, files[0]);
+    const res = imgUpLoad({ formData });
+    return;
+  };
+  const loginToken = useSelector((state: RootState) => state.auth.accessToken);
+
   return (
     <div className="editCon w-full max-w-[739px] mx-auto min-h-[70vh]">
       <h1 className="text-[2rem] font-semibold">설정</h1>
@@ -86,8 +105,8 @@ export default function ProfileEditComponent() {
             );
           })}
         </nav>
-        <article className="editForm w-full px-10">
-          <h1 className="font-bold mt-5 mb-4">프로필 편집</h1>
+        <article className="w-full px-10 editForm">
+          <h1 className="mt-5 mb-4 font-bold">프로필 편집</h1>
 
           <form
             className="subCon flex flex-col gap-y-[5px]"
@@ -103,9 +122,7 @@ export default function ProfileEditComponent() {
                   type="file"
                   id="uploadProfile"
                   accept="image/*"
-                  onChange={(e: any) => {
-                    console.log(e.target.files);
-                  }}
+                  onChange={imgUploadHandler}
                 />
               </label>
               <div>

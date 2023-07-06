@@ -1,7 +1,9 @@
-import _ from 'lodash';
 import axios, { AxiosInstance } from 'axios';
-import { useSelector } from 'react-redux';
+
 import { RootState } from '../store';
+import _ from 'lodash';
+import { useSelector } from 'react-redux';
+
 interface ResponseTypes {
   data: any;
   status: boolean;
@@ -48,8 +50,9 @@ function setInterceptors(instance: AxiosInstance) {
 
     instance.interceptors.request.use(
       function (config) {
+        console.log('config is', config, token);
         if (token) {
-          config.headers.Authrozation = `Bearer ${token}`;
+          config.headers.Authorization = `Bearer ${token}`;
         }
         return config;
       },
@@ -87,7 +90,7 @@ function setInterceptors(instance: AxiosInstance) {
         if (_.has(data, 'error')) {
           errors.error = data.error;
         }
-        console.log('error');
+        console.log('error', error);
         return Promise.resolve(errors);
       },
     );
